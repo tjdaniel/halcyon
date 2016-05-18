@@ -9,7 +9,11 @@ namespace Halcyon.HAL {
     public class Link {
         public const string RelForSelf = "self";
 
-        private static readonly Regex isTemplatedRegex = new Regex(@"{.+}", RegexOptions.Compiled);
+        private static readonly Regex isTemplatedRegex = new Regex(@"{.+}"
+#if !DNXCORE50
+            , RegexOptions.Compiled
+#endif
+        );
 
         private readonly bool replaceParameters;
 
