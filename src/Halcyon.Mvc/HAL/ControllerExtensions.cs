@@ -1,15 +1,11 @@
 ﻿using Halcyon.HAL;
 using Microsoft.AspNet.Mvc;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Dynamic;
-using System.Linq;
 using System.Net;
-using System.Web;
 
-namespace Halcyon.Web.HAL {
+namespace Halcyon.Web.HAL
+{
     public static class ControllerExtensions {
 
         public static IActionResult HAL(this Controller controller, IEnumerable<Link> links, string relativeLinkBase = "~/", HttpStatusCode statuscode = HttpStatusCode.OK) {

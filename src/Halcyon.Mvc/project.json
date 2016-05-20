@@ -16,6 +16,13 @@
 
     "frameworks": {
         "net451": { },
-        "dnx451": { }
+        "dnx451": { },
+        "dnxcore50": {
+            "dependencies": {
+                "Microsoft.CSharp": "4.0.1-beta-23516",
+                "System.Threading": "4.0.11-beta-23516",
+                "System.Text.Encoding": "4.0.11-beta-23516"
+            }
+        }
     }
 }
