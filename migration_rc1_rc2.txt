@@ -1,0 +1,9 @@
+Removing RC1 stuff: 
+
+
+- Uninstall cli tools rc1: dotnet-win-x64.1.0.0.001598.exe
+- Uninstall asp.net rc1: AspNet5.ENU.RC1_Update1.exe
+
+- Empty folder: C:\Users\[Username]\.dnx\runtimes
+- Empty folder: C:\Users\[Username]\.dnx\bin
+
