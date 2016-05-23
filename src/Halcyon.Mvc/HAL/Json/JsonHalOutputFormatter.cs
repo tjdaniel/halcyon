@@ -1,10 +1,9 @@
 ﻿using Halcyon.HAL;
-using Microsoft.AspNet.Mvc.Formatters;
-using Microsoft.Net.Http.Headers;
-using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Halcyon.Web.HAL.Json {
     public class JsonHalOutputFormatter : IOutputFormatter {
@@ -27,7 +26,11 @@ namespace Halcyon.Web.HAL.Json {
         }
 
         public async Task WriteAsync(OutputFormatterWriteContext context) {
-            string mediaType = context.ContentType.MediaType;
+
+            // TODO: check with this
+            // http://teelahti.fi/using-google-proto3-with-aspnet-mvc/
+            //string mediaType = context.ContentType.MediaType;
+            string mediaType = context.ContentType.ToString();
 
             object value = null;
             var halResponse = ((HALResponse)context.Object);

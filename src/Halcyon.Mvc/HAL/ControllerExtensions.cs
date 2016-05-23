@@ -1,8 +1,8 @@
 ﻿using Halcyon.HAL;
-using Microsoft.AspNet.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Halcyon.Web.HAL
 {
