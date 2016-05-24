@@ -2,14 +2,18 @@
     "version": "1.1.0-alpha",
     "description": "Test project for Halcyon and WebAPI",
     "authors": [ "CareerHub" ],
-    "owners": [ "CareerHub" ],
-    "tags": [ ],
-    "projectUrl": "https://github.com/visualeyes/halcyon",
-    "requireLicenseAcceptance": false,
-    "licenseUrl": "",
+
     "copyright": "Copyright 2016",
 
-    "compilationOptions": {
+    "packOptions": {
+        "owners": [ "CareerHub" ],
+        "tags": [ ],
+        "projectUrl": "https://github.com/visualeyes/halcyon",
+        "requireLicenseAcceptance": false,
+        "licenseUrl": ""
+    },
+
+    "buildOptions": {
         "emitEntryPoint": true
     },
 
@@ -23,23 +27,13 @@
         "Microsoft.Owin": "2.0.2",
         "Microsoft.Owin.Host.HttpListener": "2.0.2",
         "Microsoft.Owin.Hosting": "2.0.2",
-        "Newtonsoft.Json": "7.0.1",
+        "Newtonsoft.Json": "8.0.3",
         "Owin": "1.0"
     },
-    "commands": {
-        "web": "Halcyon.Tests.SelfHost.WebApi"
-    },
+
     "frameworks": {
         "net451": { },
         "net46": { },
         "dnx451": { }
-    },
-    "exclude": [
-        "wwwroot",
-        "node_modules"
-    ],
-    "publishExclude": [
-        "**.user",
-        "**.vspscc"
-    ]
+    }
 }

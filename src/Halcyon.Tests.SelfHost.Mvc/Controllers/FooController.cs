@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc;
 using Halcyon.Web.HAL;
 using Halcyon.HAL;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Halcyon.Tests.SelfHost.Mvc.Controllers {
     [Route("api/[controller]")]
