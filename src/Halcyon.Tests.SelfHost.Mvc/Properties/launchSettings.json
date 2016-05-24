@@ -19,6 +19,8 @@
     },
     "web": {
       "commandName": "web",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5000/api/foo/1",
       "environmentVariables": {
         "Hosting:Environment": "Development"
       },
