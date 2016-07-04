@@ -4,18 +4,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Newtonsoft.Json;
 
 namespace Halcyon.Web.HAL.Json {
     public class JsonHalOutputFormatter : IOutputFormatter {
         public const string HalJsonType = "application/hal+json";
 
         private readonly IEnumerable<string> halJsonMediaTypes;
+        private readonly JsonSerializerSettings settings;
         private readonly JsonOutputFormatter jsonFormatter;
 
 
-        public JsonHalOutputFormatter(JsonOutputFormatter jsonFormatter, IEnumerable<string> halJsonMediaTypes = null) {
+        public JsonHalOutputFormatter(JsonSerializerSettings settings, JsonOutputFormatter jsonFormatter, IEnumerable<string> halJsonMediaTypes = null) {
             if(halJsonMediaTypes == null) halJsonMediaTypes = new string[] { HalJsonType };
 
+            this.settings = settings;
             this.jsonFormatter = jsonFormatter;
 
             this.halJsonMediaTypes = halJsonMediaTypes;
@@ -36,7 +39,7 @@ namespace Halcyon.Web.HAL.Json {
             var halResponse = ((HALResponse)context.Object);
 
             // If it is a HAL response but set to application/json - convert to a plain response
-            var serializer = Newtonsoft.Json.JsonSerializer.Create(jsonFormatter.SerializerSettings);
+            var serializer = Newtonsoft.Json.JsonSerializer.Create(settings);
 
             if(!halResponse.Config.ForceHAL && !halJsonMediaTypes.Contains(mediaType)) {
                 value = halResponse.ToPlainResponse(serializer);

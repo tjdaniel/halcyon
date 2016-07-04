@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Builder;
+using System.Buffers;
 
 namespace Halcyon.Tests.SelfHost.Mvc
 {
@@ -32,9 +33,13 @@ namespace Halcyon.Tests.SelfHost.Mvc
             // Add framework services.
             services
                 .AddMvc()
-                .AddMvcOptions(c => {
-                    var jsonOutputFormatter = new JsonOutputFormatter();
+                .AddMvcOptions(c =>
+                {
+                    var settings = JsonSerializerSettingsProvider.CreateSerializerSettings();
+                    var arrayPool = ArrayPool<char>.Create();
+                    var jsonOutputFormatter = new JsonOutputFormatter(settings, arrayPool);
                     c.OutputFormatters.Add(new JsonHalOutputFormatter(
+                        settings,
                         jsonOutputFormatter,
                         halJsonMediaTypes: new string[] { "application/hal+json", "application/vnd.example.hal+json", "application/vnd.example.hal.v1+json" }
                     ));
