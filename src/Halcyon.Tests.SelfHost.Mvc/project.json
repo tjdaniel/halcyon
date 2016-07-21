@@ -20,8 +20,7 @@
 
     "tools": {
         "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-            "version": "1.0.0-preview2-final",
-            "imports": "portable-net45+win8+dnxcore50"
+            "version": "1.0.0-preview2-final"
         }
     },
 
